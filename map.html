@@ -10,17 +10,17 @@
     <body style = "background-color: rgb(141, 169, 196);">
             <script>
         function addClass(event){
-            const classInput = document.querySelector(".className");
-                
+            var className = document.getElementById("className");
+            var classText = className.value;   
             var location = document.getElementById("classDropdown");
             var locationValue = location.value;
             var startTime = document.getElementById("startDropdown");
             startValue = startTime.value;
             var endTime = document.getElementById("endDropdown");
             var endValue = endTime.value;
-            console.log(className, startTime, endTime);
-    
-            document.getElementById("testText").innerHTML = locationValue + " " + startValue +  "-" + endValue;
+            var textTemp = classText + ":" + locationValue + " " + startValue +  "-" + endValue;
+            var scheduleList = "<li>" + textTemp + "</li>"
+            document.getElementById("list").innerHTML += scheduleList;
         }
         
     </script>
@@ -182,10 +182,10 @@
                     </select>
                     </div>
                 </div>
-               
-                    <button style = "font-size: 25px; right: 300px; top: 500px;" onclick="addClass()">Add</button>
-                    <textarea id = "testText" name = "testText" rows = "4" cols = "50">This is the output text.</textarea>
-            </aside>
+                <button style = "font-size: 25px; right: 300px; top: 500px;" onclick="addClass()">Add</button>
+                    <ul id = "list">
+                    <li>Schedule: </li>
+                    </ul>  </aside>
         </div>
 
         <footer id="footer" style="color:grey;">SHEinnovates hackathon 2025</footer>
